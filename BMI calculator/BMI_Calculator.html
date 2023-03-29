@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+        <style>
+            body{
+                font-family: 'Open Sans', sans-serif;
+            }
+            .bg-image{
+                background-image: url("unnamed.png");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                z-index: -1;
+                
+                
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="card">
+                <div class="card-header text-center bg-primary">BMI Calculator</div>
+                <div class="card-body bg-dark"> 
+                    <form class="w-50 m-auto bg-image p-2" onsubmit="return false">
+                        <div class="form-group m-1">
+                            <label for="weight"> WeightInput</label>
+                            <input type="text" id="weightInput" class="form-control" placeholder="Enter Weight as  (kg)"required>
+                        </div>
+                        
+                        <div class="form-group m-1">
+                            <label for="height"> HeightInput</label>
+                            <input type="text" id="heightInput" class="form-control" placeholder="Enter height as  (meters)" required>
+                        </div>
+                        <button type="submit" class="btn btn-success m-1" onclick="getBMI()">calculateBtn</button>
+                        <div class="form-group m-1">
+                            <input type="text" id="bmiValue" class="form-control" placeholder="your BMI Result is:">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center bg-primary">Less than 18.5 is underweight, 18.5 to 24.9 is Healthy Weight and  25.0 to 29.9 is overweight and 30.0 or higher is obese.</div>
+            </div>
+        </div>
+
+        <script>
+            function getBMI(){
+                var weight = document.getElementById('weightInput').value;
+                var height = document.getElementById('heightInput').value;
+                
+                var BMI= parseFloat(weight) /parseFloat(height*height);
+                BMI=BMI.toFixed(2);
+                document.getElementById("bmiValue").value=BMI;
+            }
+        </script>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
